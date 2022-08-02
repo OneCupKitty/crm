@@ -9,8 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1219bbc-aa85-486e-9fdf-831041e0b80d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/activity/index.jsp" afterDir="false" />
+    <list default="true" id="f1219bbc-aa85-486e-9fdf-831041e0b80d" name="Changes" comment="1.0.0">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/activity/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/activity/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/pages/workbench/activity/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/pages/workbench/activity/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,12 +209,24 @@
       <workItem from="1659317739425" duration="6363000" />
       <workItem from="1659343035099" duration="8528000" />
       <workItem from="1659403407470" duration="5736000" />
-      <workItem from="1659430344431" duration="541000" />
+      <workItem from="1659430344431" duration="6465000" />
     </task>
+    <task id="LOCAL-00001" summary="1.0.0">
+      <created>1659431128127</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1659431128127</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1.0.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
