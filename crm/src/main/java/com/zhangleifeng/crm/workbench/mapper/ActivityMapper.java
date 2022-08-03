@@ -68,4 +68,25 @@ public interface ActivityMapper {
      * @return
      */
     int selectCountOfActivityByCondition(Map<String,Object> map);
+
+    /**
+     * 根据id 数组,删除活动
+     * @param ids
+     * @return
+     */
+    int deleteActivityByIds(String [] ids);
+
+    /**
+     * 跟据id 查询市场活动
+     * @param id
+     * @return
+     */
+    Activity selectActivityById(String id);
+
+    /**
+     * 根据id 更新市场活动
+     * @param activity
+     * @return
+     */
+    int updateActivityById(Activity activity);
 }

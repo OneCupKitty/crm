@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.HashMap;
@@ -36,15 +37,10 @@ public class ActivityController {
 
 
     @RequestMapping("/workbench/activity/index.do")
-    public String index(){
-        return "workbench/activity/index";
-    }
-
-    @RequestMapping("/workbench/activity/getUserList.do")
-    @ResponseBody
-    public Object getUserList(){//定义返回值类型,真正返回时,是返回子类型对象
+    public String index(HttpServletRequest request){
         List<User> userList = userService.selectUserList();
-        return userList;
+        request.setAttribute("userList",userList);
+        return "workbench/activity/index";
     }
 
     @RequestMapping("/workbench/activity/insertActivity.do")
@@ -94,6 +90,58 @@ public class ActivityController {
         retMap.put("activityList",activityList);
         retMap.put("totalRows",totalRows);
         return retMap;
+    }
+
+    @RequestMapping("/workbench/activity/deleteActivityByIds.do")
+    @ResponseBody
+    public Object deleteActivityById(String [] id){//String [] id = request.getParameter("id");
+        ReturnObject returnObject = new ReturnObject();
+        try {
+            int count = activityService.deleteActivityById(id);
+            if (count == id.length) {
+                //删除成功
+                returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+            }else {
+                returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+                returnObject.setMessage("系统忙,请稍后再试");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+            returnObject.setMessage("系统忙,请稍后再试");
+        }
+        return returnObject;
+    }
+
+    @RequestMapping("/workbench/activity/selectActivityById.do")
+    @ResponseBody
+    public Object selectActivityById(String id){
+        Activity activity = activityService.selectActivityById(id);
+        return activity;
+    }
+
+    @RequestMapping("/workbench/activity/updateActivityById.do")
+    @ResponseBody
+    public Object updateActivityById(Activity activity,HttpSession session){
+        User user = (User) session.getAttribute(Contants.SESSION_USER);
+        activity.setEditBy(user.getId());
+        activity.setEditTime(DateUtils.formatDateTime(new Date()));
+
+        ReturnObject returnObject = new ReturnObject();
+        try {
+            int count = activityService.updateActivityById(activity);
+            if (count == 1){
+                returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+            }else {
+                returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+                returnObject.setMessage("系统忙,请稍后再试");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+            returnObject.setMessage("系统忙,请稍后再试");
+        }
+        return returnObject;
     }
 
 }
