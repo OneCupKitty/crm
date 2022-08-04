@@ -1,4 +1,4 @@
-package com.zhangleifeng.test;
+package com.zhangleifeng.uuid;
 
 import com.zhangleifeng.crm.commons.utils.UUIDUtils;
 import org.junit.Test;

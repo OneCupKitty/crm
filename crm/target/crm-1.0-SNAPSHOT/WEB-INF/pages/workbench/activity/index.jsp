@@ -280,6 +280,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			})
 
 		})
+		//给导出市场活动按钮,绑定事件
+		//导出市场活动
+		$("#exportActivityAllBtn").click(function () {
+			window.location.href="workbench/activity/exportAllActivities.do"
+		})
+		$("#exportActivitySomeBtn").click(function () {
+			//获取被选中的记录
+			const checkedIds = $("#tBody input[type='checkbox']:checked");
+			if(checkedIds.size()==0){
+				alert("请选择导出的市场活动");
+				return;
+			}
+
+			let ids = "";
+			$.each(checkedIds,function () {//id=xxxx&id=xxx&.....&id=xxx&
+				ids+="id="+this.value+"&";
+			});
+			ids=ids.substr(0,ids.length-1);//id=xxxx&id=xxx&.....&id=xxx
+			window.location.href="workbench/activity/exportSomeActivitiesByIds.do?"+ids
+		})
 		
 	});
 
@@ -584,9 +604,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  <button type="button"  class="btn btn-danger" id="deleteActivityBtn"><span class="glyphicon glyphicon-minus"></span> 删除</button>
 				</div>
 				<div class="btn-group" style="position: relative; top: 18%;">
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#importActivityModal" ><span class="glyphicon glyphicon-import"></span> 上传列表数据（导入）</button>
-                    <button id="exportActivityAllBtn" type="button" class="btn btn-default"><span class="glyphicon glyphicon-export"></span> 下载列表数据（批量导出）</button>
-                    <button id="exportActivityXzBtn" type="button" class="btn btn-default"><span class="glyphicon glyphicon-export"></span> 下载列表数据（选择导出）</button>
+					<button type="button" class="btn btn-default" data-toggle="modal" data-target="#importActivityModal" ><span class="glyphicon glyphicon-import"></span> 上传列表数据（导入）</button>
+					<button type="button" id="exportActivityAllBtn"  class="btn btn-default"><span class="glyphicon glyphicon-export"></span> 下载列表数据（批量导出）</button>
+					<button type="button" id="exportActivitySomeBtn"  class="btn btn-default"><span class="glyphicon glyphicon-export"></span> 下载列表数据（选择导出）</button>
                 </div>
 			</div>
 			<div style="position: relative;top: 10px;">

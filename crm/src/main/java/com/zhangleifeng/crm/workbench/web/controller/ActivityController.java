@@ -3,6 +3,7 @@ package com.zhangleifeng.crm.workbench.web.controller;
 import com.zhangleifeng.crm.commons.contants.Contants;
 import com.zhangleifeng.crm.commons.domain.ReturnObject;
 import com.zhangleifeng.crm.commons.utils.DateUtils;
+import com.zhangleifeng.crm.commons.utils.HSSFWorkBookUtils;
 import com.zhangleifeng.crm.commons.utils.UUIDUtils;
 import com.zhangleifeng.crm.settings.domain.User;
 import com.zhangleifeng.crm.settings.service.UserService;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -142,6 +145,19 @@ public class ActivityController {
             returnObject.setMessage("系统忙,请稍后再试");
         }
         return returnObject;
+    }
+
+    @RequestMapping("/workbench/activity/exportAllActivities.do")
+    public void exportAllActivities(HttpServletResponse response) throws Exception{
+        //调用service层方法，查询所有的市场活动
+        List<Activity> activityList=activityService.selectAllActivities();
+        HSSFWorkBookUtils.getActivityWorkBookXls(activityList,response);
+    }
+    @RequestMapping("/workbench/activity/exportSomeActivitiesByIds.do")
+    public void selectSomeActivitiesByIds(String[] id,HttpServletResponse response) throws IOException {//String [] id = request.getParameter("id");
+        List<Activity> activityList = activityService.selectActivitiesByIds(id);
+        //创建exel文件，并且把activityList写入到excel文件中
+        HSSFWorkBookUtils.getActivityWorkBookXls(activityList,response);
     }
 
 }
