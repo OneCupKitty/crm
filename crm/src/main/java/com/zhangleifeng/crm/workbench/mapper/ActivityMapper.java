@@ -102,4 +102,18 @@ public interface ActivityMapper {
      * @return
      */
     List<Activity> selectActivitiesByIds(String[] ids);
+
+    /**
+     * 添加生成的市场活动列表
+     * @param activityList
+     * @return
+     */
+    int insertActivityByList(List<Activity> activityList);
+
+    /**
+     * 根据id 查询市场活动明细
+     * @param id
+     * @return
+     */
+    Activity selectActivityForDetail(String id);
 }

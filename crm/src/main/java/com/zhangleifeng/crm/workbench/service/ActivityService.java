@@ -21,4 +21,8 @@ public interface ActivityService {
     List<Activity> selectAllActivities();
 
     List<Activity> selectActivitiesByIds(String[] ids);
+
+    int insertActivityByList(List<Activity> activityList);
+
+    Activity selectActivityForDetail(String id);
 }
