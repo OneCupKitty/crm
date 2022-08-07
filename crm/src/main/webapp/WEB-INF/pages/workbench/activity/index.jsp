@@ -424,7 +424,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 		});
 	}
-	
+
 </script>
 </head>
 <body>
@@ -440,9 +440,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<h4 class="modal-title" id="myModalLabel1">创建市场活动</h4>
 				</div>
 				<div class="modal-body">
-				
+
 					<form id="createActivityForm" class="form-horizontal" role="form">
-					
+
 						<div class="form-group">
 							<label for="create-marketActivityOwner" class="col-sm-2 control-label">所有者<span style="font-size: 15px; color: red;">*</span></label>
 							<div class="col-sm-10" style="width: 300px;">
@@ -457,7 +457,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <input type="text" class="form-control" id="create-marketActivityName">
                             </div>
 						</div>
-						
+
 						<div class="form-group">
 							<label for="create-startDate" class="col-sm-2 control-label">开始日期</label>
 							<div class="col-sm-10" style="width: 300px;">
@@ -481,9 +481,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<textarea class="form-control" rows="3" id="create-description"></textarea>
 							</div>
 						</div>
-						
+
 					</form>
-					
+
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -492,7 +492,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- 修改市场活动的模态窗口 -->
 	<div class="modal fade" id="editActivityModal" role="dialog">
 		<div class="modal-dialog" role="document" style="width: 85%;">
@@ -504,7 +504,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<h4 class="modal-title" id="myModalLabel2">修改市场活动</h4>
 				</div>
 				<div class="modal-body">
-				
+
 					<form class="form-horizontal" role="form">
 						<input type="hidden" id="edit-id">
 						<div class="form-group">
@@ -532,23 +532,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<input type="text" class="form-control mydate" id="edit-endTime" value="2020-10-20">
 							</div>
 						</div>
-						
+
 						<div class="form-group">
 							<label for="edit-cost" class="col-sm-2 control-label">成本</label>
 							<div class="col-sm-10" style="width: 300px;">
 								<input type="text" class="form-control" id="edit-cost" value="5,000">
 							</div>
 						</div>
-						
+
 						<div class="form-group">
 							<label for="edit-describe" class="col-sm-2 control-label">描述</label>
 							<div class="col-sm-10" style="width: 81%;">
 								<textarea class="form-control" rows="3" id="edit-describe">市场活动Marketing，是指品牌主办或参与的展览会议与公关市场活动，包括自行主办的各类研讨会、客户交流会、演示会、新产品发布会、体验会、答谢会、年会和出席参加并布展或演讲的展览会、研讨会、行业交流会、颁奖典礼等</textarea>
 							</div>
 						</div>
-						
+
 					</form>
-					
+
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -557,7 +557,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- 导入市场活动的模态窗口 -->
     <div class="modal fade" id="importActivityModal" role="dialog">
         <div class="modal-dialog" role="document" style="width: 85%;">
@@ -595,8 +595,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
         </div>
     </div>
-	
-	
+
+
 	<div>
 		<div style="position: relative; left: 10px; top: -10px;">
 			<div class="page-header">
@@ -606,17 +606,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<div style="position: relative; top: -20px; left: 0px; width: 100%; height: 100%;">
 		<div style="width: 100%; position: absolute;top: 5px; left: 10px;">
-		
+
 			<div class="btn-toolbar" role="toolbar" style="height: 80px;">
 				<form class="form-inline" role="form" style="position: relative;top: 8%; left: 5px;">
-				  
+
 				  <div class="form-group">
 				    <div class="input-group">
 				      <div class="input-group-addon">名称</div>
 				      <input class="form-control selectActivity" type="text" id="query-name">
 				    </div>
 				  </div>
-				  
+
 				  <div class="form-group">
 				    <div class="input-group">
 				      <div class="input-group-addon">所有者</div>
@@ -637,9 +637,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					  <input class="form-control mydate selectActivity" type="text" id="query-endDate">
 				    </div>
 				  </div>
-				  
+
 				  <button type="button" id="selectActivityBtn" class="btn btn-default">查询</button>
-				  
+
 				</form>
 			</div>
 			<div class="btn-toolbar" role="toolbar" style="background-color: #F7F7F7; height: 50px; position: relative;top: 5px;">
@@ -684,7 +684,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</table>
 				<div id="timepicker"></div>
 			</div>
-			
+
 			<%--<div style="height: 50px; position: relative;top: 30px;">
 				<div>
 					<button type="button" class="btn btn-default" id="totalRowsB" style="cursor: default;">共<b></b>条记录</button>
@@ -719,9 +719,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</nav>
 				</div>
 			</div>--%>
-			
+
 		</div>
-		
+
 	</div>
 </body>
 </html>

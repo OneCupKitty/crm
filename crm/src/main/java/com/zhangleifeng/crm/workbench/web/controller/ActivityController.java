@@ -240,9 +240,4 @@ public class ActivityController {
         return "workbench/activity/detail";
     }
 
-    @RequestMapping("/workbench/activity/insertActivityRemarkByRemarkId")
-    @ResponseBody
-    public Object insertActivityRemarkByRemarkId(){
-        return null;
-    }
 }

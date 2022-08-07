@@ -9,21 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1219bbc-aa85-486e-9fdf-831041e0b80d" name="Changes" comment="1.8.2">
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/ActivityRemarkService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/ActivityRemarkServiceImpl.java" afterDir="false" />
+    <list default="true" id="f1219bbc-aa85-486e-9fdf-831041e0b80d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/web/controller/ActivityRemarkController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/commons/utils/HSSFWorkBookUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/commons/utils/HSSFWorkBookUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ActivityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ActivityMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ActivityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ActivityMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/ActivityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/ActivityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/ActivityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/ActivityServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/commons/contants/Contants.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/commons/contants/Contants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ActivityRemarkMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ActivityRemarkMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ActivityRemarkMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ActivityRemarkMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/ActivityRemarkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/ActivityRemarkService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/ActivityRemarkServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/ActivityRemarkServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/web/controller/ActivityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/web/controller/ActivityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/resources/applicationContext-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/resources/applicationContext-mvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/activity/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/activity/detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/activity/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/activity/detail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/activity/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/activity/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/contacts/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/contacts/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm_mybatis_generator/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm_mybatis_generator/src/main/resources/generatorConfig.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +249,9 @@
       <workItem from="1659701152379" duration="789000" />
       <workItem from="1659757353778" duration="1441000" />
       <workItem from="1659772717244" duration="2101000" />
-      <workItem from="1659777927762" duration="2845000" />
+      <workItem from="1659777927762" duration="2925000" />
+      <workItem from="1659795695679" duration="951000" />
+      <workItem from="1659834550967" duration="8328000" />
     </task>
     <task id="LOCAL-00001" summary="1.0.0">
       <created>1659431128127</created>
@@ -283,7 +281,21 @@
       <option name="project" value="LOCAL" />
       <updated>1659623417087</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="1.8.2">
+      <created>1659789083027</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1659789083027</updated>
+    </task>
+    <task id="LOCAL-00006" summary="1.8.2">
+      <created>1659789119447</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1659789119447</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
