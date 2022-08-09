@@ -44,6 +44,19 @@
 				todayBtn:true,//设置是否显示"今天"按钮,默认是false
 				clearBtn:true//设置是否显示"清空"按钮，默认是false
 			});
+			//给"全选"按钮添加单击事件
+			$("#checkAll").click(function () {
+				$("#tBody input[type='checkbox']").prop("checked",this.checked);
+			});
+			//给所有单个复选框 添加单击事件
+			$("#tBody").on("click","input[type='checkbox']",function () {
+				//如果列表中的所有checkbox都选中，则"全选"按钮也选中
+				if($("#tBody input[type='checkbox']").size()==$("#tBody input[type='checkbox']:checked").size()){
+					$("#checkAll").prop("checked",true);
+				}else{//如果列表中的所有checkbox至少有一个没选中，则"全选"按钮也取消
+					$("#checkAll").prop("checked",false);
+				}
+			});
 
 			//给"保存"按钮添加单击事件
 			$("#saveCreateClueBtn").click(function () {
@@ -115,7 +128,7 @@
 				return;
 			}
 			//固定电话号码
-			/*var phoneNum = /^(0[0-9]{2,3}-)?([2-9][0-9]{6,7})+(-[0-9]{1,4})?$/
+			/*var phoneNum = /^(\(\d{3,4}-)|\d{3.4}-)?\d{7,8}$/
 			if (!phoneNum.test(phone)){
 				alert("请输入合法的公司座机")
 				return;
@@ -126,12 +139,12 @@
 				alert("请输入合法的手机号")
 				return;
 			}
-			//域名
-			var domainName = /^((?!-)[A-Za-z0-9-]{1,63}(?<!-)\\.)+[A-Za-z]{2,6}$/
+			//公司网站
+			/*var domainName = /^http://([\w-]+\.)+[\w-]+(/[\w-./?%&=]*)?$/
 			if (!domainName.test(website)){
 				alert("请输入合法的公司网站")
 				return;
-			}
+			}*/
 			//发送请求
 			$.ajax({
 				url:'workbench/clue/saveCreateClue.do',
@@ -560,14 +573,14 @@
 
 				<div class="form-group">
 					<div class="input-group">
-						<div class="input-group-addon">名称</div>
+						<div class="input-group-addon">名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称</div>
 						<input id="fullname" class="form-control selectClue" type="text">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<div class="input-group">
-						<div class="input-group-addon">公司</div>
+						<div class="input-group-addon">公&nbsp;&nbsp;司</div>
 						<input id="company" class="form-control selectClue" type="text">
 					</div>
 				</div>
@@ -595,7 +608,7 @@
 
 				<div class="form-group">
 					<div class="input-group">
-						<div class="input-group-addon">所有者</div>
+						<div class="input-group-addon">所&nbsp;有&nbsp;者</div>
 						<input id="owner" class="form-control selectClue" type="text">
 					</div>
 				</div>
@@ -604,7 +617,7 @@
 
 				<div class="form-group">
 					<div class="input-group">
-						<div class="input-group-addon">手机</div>
+						<div class="input-group-addon">手&nbsp;&nbsp;机</div>
 						<input id="mphone" class="form-control selectClue" type="text">
 					</div>
 				</div>
@@ -638,13 +651,13 @@
 			<table class="table table-hover">
 				<thead>
 				<tr style="color: #B3B3B3;">
-					<td><input type="checkbox" /></td>
-					<td>名称</td>
-					<td>公司</td>
+					<td><input type="checkbox" id="checkAll" /></td>
+					<td>名   称</td>
+					<td>公   司</td>
 					<td>公司座机</td>
-					<td>手机</td>
+					<td>手   机</td>
 					<td>线索来源</td>
-					<td>所有者</td>
+					<td>所 有 者</td>
 					<td>线索状态</td>
 				</tr>
 				</thead>

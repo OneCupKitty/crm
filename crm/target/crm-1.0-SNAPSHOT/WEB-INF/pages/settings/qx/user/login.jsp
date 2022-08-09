@@ -73,7 +73,7 @@
 						//该函数的返回值能够决定ajax是否真正向后台发送请求：
 						//如果该函数返回true,则ajax会真正向后台发送请求；否则，如果该函数返回false，则ajax放弃向后台发送请求。
 						//$("#msg").text("正在努力验证....");
-						$("#msg").html("<font color='green'>正在努力验证....</font>");
+						$("#msg").html("<font color='#4682b4'>正在努力验证....</font>");
 						return true;
 					}
 				});

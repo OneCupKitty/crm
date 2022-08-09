@@ -11,8 +11,10 @@ import com.zhangleifeng.crm.settings.service.DicValueService;
 import com.zhangleifeng.crm.settings.service.UserService;
 import com.zhangleifeng.crm.workbench.domain.Activity;
 import com.zhangleifeng.crm.workbench.domain.Clue;
+import com.zhangleifeng.crm.workbench.domain.ClueActivityRelation;
 import com.zhangleifeng.crm.workbench.domain.ClueRemark;
 import com.zhangleifeng.crm.workbench.service.ActivityService;
+import com.zhangleifeng.crm.workbench.service.ClueActivityRelationService;
 import com.zhangleifeng.crm.workbench.service.ClueRemarkService;
 import com.zhangleifeng.crm.workbench.service.ClueService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @program: crm-project
@@ -50,6 +49,9 @@ public class ClueController {
 
     @Autowired
     ActivityService activityService;
+
+    @Autowired
+    ClueActivityRelationService clueActivityRelationService;
 
 
     @RequestMapping("/workbench/clue/index.do")
@@ -144,6 +146,68 @@ public class ClueController {
         List<Activity> activityList=activityService.selectActivityForDetailByNameAndClueId(map);
         //根据查询结果，返回响应信息
         return activityList;
+    }
+    @RequestMapping("/workbench/clue/saveClueActivityRelation.do")
+    @ResponseBody
+    public Object saveClueActivityRelation(String[] activityId,String clueId){
+        //封装参数
+        ClueActivityRelation car=null;
+        List<ClueActivityRelation> relationList=new ArrayList<>();
+        for(String ai:activityId){
+            car=new ClueActivityRelation();
+            car.setActivityId(ai);
+            car.setClueId(clueId);
+            car.setId(UUIDUtils.getUUID());
+            relationList.add(car);
+        }
+
+        ReturnObject returnObject=new ReturnObject();
+        try {
+            //调用service方法，批量保存线索和市场活动的关联关系
+            int ret = clueActivityRelationService.insertClueActivityRelationByList(relationList);
+
+            if(ret>0){
+                returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+
+                List<Activity> activityList=activityService.selectActivityForDetailByActivityIdArray(activityId);
+                returnObject.setReturnData(activityList);
+            }else{
+                returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+                returnObject.setMessage("系统忙，请稍后重试....");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+            returnObject.setMessage("系统忙，请稍后重试....");
+        }
+
+        return returnObject;
+    }
+
+    @RequestMapping("/workbench/clue/deleteClueActivityRelation.do")
+    @ResponseBody
+    public Object deleteClueActivityRelation(String activityId,String clueId){
+        ClueActivityRelation clueActivityRelation = new ClueActivityRelation();
+        clueActivityRelation.setActivityId(activityId);
+        clueActivityRelation.setClueId(clueId);
+        ReturnObject returnObject = new ReturnObject();
+        try {
+            int count = clueActivityRelationService.deleteClueActivityRelationByActivityIdAndClueId(clueActivityRelation);
+            if (count > 0){
+                //成功
+                returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+
+            }else {
+                returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+                returnObject.setMessage("系统忙，请稍后重试....");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+            returnObject.setMessage("系统忙，请稍后重试....");
+        }
+        return returnObject;
+
     }
 
 }

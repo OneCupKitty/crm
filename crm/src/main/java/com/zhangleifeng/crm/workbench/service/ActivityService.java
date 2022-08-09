@@ -29,4 +29,6 @@ public interface ActivityService {
     List<Activity> selectActivityByClueId(String id);
 
     List<Activity> selectActivityForDetailByNameAndClueId(Map<String,Object> map);
+
+    List<Activity> selectActivityForDetailByActivityIdArray(String [] ids);
 }

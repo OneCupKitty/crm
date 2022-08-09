@@ -130,4 +130,11 @@ public interface ActivityMapper {
      * @return
      */
     List<Activity> selectActivityForDetailByNameAndClueId(Map<String,Object> map);
+
+    /**
+     * 通过市场活动id数组,查询市场活动的信息
+     * @param ids
+     * @return
+     */
+    List<Activity> selectActivityForDetailByActivityIdArray(String [] ids);
 }

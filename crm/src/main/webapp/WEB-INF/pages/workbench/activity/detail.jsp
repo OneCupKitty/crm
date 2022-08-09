@@ -123,6 +123,7 @@
 				}
 			})
 		});
+		//更新备注
 		updateActivityRemark=function () {
 			//收集参数
 			var id=$("#edit-id").val();
@@ -186,7 +187,7 @@
 						htmlStr+="<img title=\"${sessionScope.sessionUser.name}\" src=\"image/user-thumbnail.png\" style=\"width: 30px; height:30px;\">";
 						htmlStr+="<div style=\"position: relative; top: -40px; left: 40px;\" >";
 						htmlStr+="<h5>"+data.returnData.noteContent+"</h5>";
-						htmlStr+="<font color=\"gray\">市场活动</font> <font color=\"gray\">-</font> <b>${activity.name}</b> <small style=\"color: gray;\"> "+data.returnData.createTime+" 由${sessionScope.sessionUser.name}创建</small>";
+						htmlStr+="<font color=\"gray\">市场活动</font> <font color=\"gray\">-</font> <b>${activity.name}</b> <small style=\"color: gray;\"> "+data.returnData.createTime+" 由${sessionScope.sessionUser.name} 创建</small>";
 						htmlStr+="<div style=\"position: relative; left: 500px; top: -30px; height: 30px; width: 100px; display: none;\">";
 						htmlStr+="<a class=\"myHref\" name=\"editA\" remarkId=\""+data.returnData.id+"\" href=\"javascript:void(0);\"><span class=\"glyphicon glyphicon-edit\" style=\"font-size: 20px; color: #E6E6E6;\"></span></a>";
 						htmlStr+="&nbsp;&nbsp;&nbsp;&nbsp;";
