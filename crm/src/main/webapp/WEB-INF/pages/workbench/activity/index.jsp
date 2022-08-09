@@ -127,7 +127,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		});
 
 		//页面加载完毕后执行查询市场活动
-		selectActivityByConditionForPage(1,10)
+		selectActivityByConditionForPage(1,5)
 
 		//点击查询按纽，进行条件查询
 		$("#selectActivityBtn").click(function (){
@@ -349,7 +349,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	});
 
 	//条件分页查询
-	function selectActivityByConditionForPage(pageNo,pageSize) {
+	function selectActivityByConditionForPage(pageNo,pageSize) { //todo
 		//收集参数
 		var name=$("#query-name").val();
 		var owner=$("#query-owner").val();

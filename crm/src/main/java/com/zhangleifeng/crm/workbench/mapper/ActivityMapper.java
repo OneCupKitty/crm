@@ -116,4 +116,18 @@ public interface ActivityMapper {
      * @return
      */
     Activity selectActivityForDetail(String id);
+
+    /**
+     * 根据clueid 查询市场活动的信息
+     * @param id
+     * @return
+     */
+    List<Activity> selectActivityByClueId(String id);
+
+    /**
+     * 根据市场活动名称 和 线索id,查询没有和线索绑定的市场活动
+     * @param map
+     * @return
+     */
+    List<Activity> selectActivityForDetailByNameAndClueId(Map<String,Object> map);
 }

@@ -311,4 +311,23 @@
            left join tbl_user u3 on a.edit_by=u3.id
     where a.id=#{id}
   </select>
+
+  <select id="selectActivityByClueId" resultMap="BaseResultMap">
+    select a.id,a.name,u.name as owner
+    from tbl_activity a
+    join tbl_user u on a.owner=u.id
+    join tbl_clue_activity_relation car on a.id=car.activity_id
+    where car.clue_id=#{clueId}
+  </select>
+
+  <select id="selectActivityForDetailByNameAndClueId" resultMap="BaseResultMap">
+    select a.id ,a.name,a.start_date,a.end_date,u.name as owner
+    from tbl_activity a
+    join tbl_user u on a.owner=u.id
+    where a.name like '%' #{activityName} '%' and a.id not in (
+        select car.activity_id
+        from tbl_clue_activity_relation car
+        where clue_id=#{clueId}
+    )
+  </select>
 </mapper>
