@@ -17,4 +17,8 @@ public class SessionUserUtils {
         String Id = user.getId();
         return Id;
     }
+    public static User getSessionUser(HttpSession session){
+        User user = (User) session.getAttribute(Contants.SESSION_USER);
+        return user;
+    }
 }

@@ -414,4 +414,10 @@
       </if>
     </where>
   </select>
+
+  <select id="selectClueByClueId" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"></include>
+    from tbl_clue
+    where id=#{id}
+  </select>
 </mapper>

@@ -15,4 +15,6 @@ public interface ClueService {
     List<Clue> selectClueByConditionForPage(Map<String,Object> map);
 
     int selectCountClueByCondition(Map<String,Object> map);
+
+    void saveClueConvert(Map<String,Object> map);
 }
