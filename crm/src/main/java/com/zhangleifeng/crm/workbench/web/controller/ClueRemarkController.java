@@ -85,13 +85,13 @@ public class ClueRemarkController {
         return returnObject;
     }
 
-    @RequestMapping("/workbench/activity/deleteClueRemarkByClueId.do")
+    @RequestMapping("/workbench/activity/deleteClueRemarkByClueRemarkId.do")
     @ResponseBody
     public Object deleteClueRemarkByClueId(String id){
 
         ReturnObject returnObject=new ReturnObject();
         try {
-            int ret = clueRemarkService.deleteClueRemarkByClueId(id);
+            int ret = clueRemarkService.deleteClueRemarkByClueRemarkId(id);
             if(ret>0){
                 returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
             }else{

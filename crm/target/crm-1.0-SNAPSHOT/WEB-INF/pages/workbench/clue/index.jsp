@@ -218,7 +218,7 @@
 					var htmlStr="";
 					$.each(data.clueList,function (index,obj) {
 						htmlStr+="<tr>"
-						htmlStr+="<td id='+obj.id+'><input type='checkbox' /></td>"
+						htmlStr+="<td id='"+obj.id+"'><input type='checkbox' /></td>"
 						htmlStr+="<td><a style=\"text-decoration: none; cursor: pointer;\" onclick=\"window.location.href='workbench/clue/detailClue.do?id="+obj.id+"';\">"+obj.fullname+obj.appellation+"</a></td>"
 						htmlStr+="<td>"+obj.company+"</td>"
 						htmlStr+="<td>"+obj.phone+"</td>"

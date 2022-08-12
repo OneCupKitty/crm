@@ -144,4 +144,11 @@ public interface ActivityMapper {
      * @return
      */
     List<Activity> selectActivityForConvertByNameClueId(Map<String,Object> map);
+
+    /**
+     * 根据市场活动名称,模糊查询市场活动
+     * @param name
+     * @return
+     */
+    List<Activity> selectActivityForDetailByName(String name);
 }

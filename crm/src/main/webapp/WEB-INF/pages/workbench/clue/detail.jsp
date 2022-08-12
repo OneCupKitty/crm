@@ -214,7 +214,7 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 				var id=$(this).attr("remarkId");
 				//发送请求
 				$.ajax({
-					url:'workbench/activity/deleteClueRemarkByClueId.do',
+					url:'workbench/activity/deleteClueRemarkByClueRemarkId.do',
 					data:{
 						id:id
 					},

@@ -352,4 +352,15 @@
       )
 
   </select>
+
+  <select id="selectActivityForDetailByName" resultMap="BaseResultMap">
+    select a.id,a.name,a.start_date,a.end_date,u.name as owner
+    from tbl_activity a
+    join tbl_user u on a.owner=u.id
+    <where>
+      <if test="activityName != null and activityName != ''">
+        and a.name like '%' #{activityName} '%'
+      </if>
+    </where>
+  </select>
 </mapper>

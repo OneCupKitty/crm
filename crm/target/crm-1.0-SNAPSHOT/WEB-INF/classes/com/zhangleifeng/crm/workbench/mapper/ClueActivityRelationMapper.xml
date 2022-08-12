@@ -120,4 +120,15 @@
     delete from tbl_clue_activity_relation
     where clue_id=#{clueId} and activity_id=#{activityId}
   </delete>
+
+  <select id="selectClueActivityRelationByClueId" resultMap="BaseResultMap">
+    select id, clue_id, activity_id
+    from tbl_clue_activity_relation
+    where clue_id=#{clueid}
+  </select>
+
+  <delete id="deleteClueActivityRelationByClueId">
+    delete from tbl_clue_activity_relation
+    where clue_id=#{clueId}
+  </delete>
 </mapper>
