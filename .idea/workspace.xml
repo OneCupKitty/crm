@@ -9,88 +9,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1219bbc-aa85-486e-9fdf-831041e0b80d" name="Changes" comment="1.8.2">
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/domain/Contacts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/domain/ContactsActivityRelation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/domain/ContactsRemark.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/domain/CustomerRemark.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/domain/Tran.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/domain/TranRemark.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ContactsActivityRelationMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ContactsActivityRelationMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ContactsMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ContactsMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ContactsRemarkMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ContactsRemarkMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/CustomerRemarkMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/CustomerRemarkMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/TranMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/TranMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/TranRemarkMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/TranRemarkMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/ContactsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/CustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/TranService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/ContactsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/CustomerServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/TranServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/web/controller/ContactsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/web/controller/CustomerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/web/controller/TranController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crm/src/main/resources/possibility.properties" afterDir="false" />
+    <list default="true" id="f1219bbc-aa85-486e-9fdf-831041e0b80d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/domain/FunnelVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/domain/TranHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/TranHistoryMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/TranHistoryMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/TranHistoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/TranRemarkService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/TranHistoryServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/TranRemarkServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/web/controller/ChartController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/domain/Tran.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/domain/Tran.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ActivityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ActivityMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ActivityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ActivityMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ClueActivityRelationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ClueActivityRelationMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ClueActivityRelationMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ClueActivityRelationMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ClueMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ClueMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ClueMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ClueMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ClueRemarkMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ClueRemarkMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ClueRemarkMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ClueRemarkMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/CustomerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/CustomerMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/CustomerMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/CustomerMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/ActivityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/ActivityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/ClueRemarkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/ClueRemarkService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/ActivityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/ActivityServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/ClueRemarkServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/ClueRemarkServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/ClueServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/ClueServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/web/controller/ClueRemarkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/web/controller/ClueRemarkController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/clue/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/clue/detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/clue/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/clue/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ContactsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ContactsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ContactsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/ContactsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/TranMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/TranMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/TranMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/TranMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/TranRemarkMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/TranRemarkMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/TranRemarkMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/mapper/TranRemarkMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/ContactsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/ContactsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/TranService.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/TranService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/ContactsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/ContactsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/TranServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/service/impl/TranServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/web/controller/ContactsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/web/controller/ContactsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/web/controller/TranController.java" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/web/controller/TranController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/chart/transaction/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/chart/transaction/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/contacts/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/contacts/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/contacts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/contacts/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/contacts/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/contacts/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/customer/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/customer/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/customer/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/customer/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/customer/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/customer/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/transaction/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/transaction/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/transaction/save.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/transaction/save.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/classes/com/zhangleifeng/crm/workbench/mapper/ActivityMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/classes/com/zhangleifeng/crm/workbench/mapper/ActivityMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/classes/com/zhangleifeng/crm/workbench/mapper/ActivityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/classes/com/zhangleifeng/crm/workbench/mapper/ActivityMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/classes/com/zhangleifeng/crm/workbench/service/ActivityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/classes/com/zhangleifeng/crm/workbench/service/ActivityService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/classes/com/zhangleifeng/crm/workbench/service/impl/ActivityServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/classes/com/zhangleifeng/crm/workbench/service/impl/ActivityServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/mapper/ActivityMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/mapper/ActivityMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/mapper/ActivityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/mapper/ActivityMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/mapper/ClueActivityRelationMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/mapper/ClueActivityRelationMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/mapper/ClueActivityRelationMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/mapper/ClueActivityRelationMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/mapper/ClueMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/mapper/ClueMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/mapper/ClueMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/mapper/ClueMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/mapper/ClueRemarkMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/mapper/ClueRemarkMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/mapper/ClueRemarkMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/mapper/ClueRemarkMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/service/ActivityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/service/ActivityService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/service/ClueRemarkService.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/service/ClueRemarkService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/service/impl/ActivityServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/service/impl/ActivityServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/service/impl/ClueRemarkServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/service/impl/ClueRemarkServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/service/impl/ClueServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/service/impl/ClueServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/web/controller/ClueRemarkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/classes/com/zhangleifeng/crm/workbench/web/controller/ClueRemarkController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/pages/workbench/clue/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/pages/workbench/clue/detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/pages/workbench/clue/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/pages/workbench/clue/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/transaction/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/transaction/detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/transaction/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/transaction/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/transaction/save.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/crm/src/main/webapp/WEB-INF/pages/workbench/transaction/save.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/pages/workbench/chart/transaction/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/pages/workbench/contacts/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/pages/workbench/contacts/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/pages/workbench/contacts/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/pages/workbench/customer/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/pages/workbench/customer/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/pages/workbench/customer/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/pages/workbench/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/pages/workbench/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/pages/workbench/transaction/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/pages/workbench/transaction/save.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/target/crm-1.0-SNAPSHOT/WEB-INF/pages/workbench/transaction/detail.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crm_mybatis_generator/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crm_mybatis_generator/src/main/resources/generatorConfig.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +107,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="17" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/crm/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/crm/src/main/java/com/zhangleifeng/crm/workbench/web/controller" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.3413793" />
@@ -159,11 +116,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java\javaFile\crm-project\crm\src\main\java\com\zhangleifeng\crm\workbench\web\controller" />
       <recent name="D:\java\javaFile\crm-project\crm\src\main\resources" />
       <recent name="D:\java\javaFile\crm-project\crm\src\main\java\com\zhangleifeng\crm\commons\contants" />
       <recent name="D:\java\javaFile\crm-project\crm\src\main\java\com\zhangleifeng\crm\commons\utils" />
       <recent name="D:\java\javaFile\crm-project\crm_mybatis_generator\src\main\resources" />
-      <recent name="D:\java\javaFile\crm-project\crm\src\main\webapp\WEB-INF\pages" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.62">
@@ -351,7 +308,11 @@
       <workItem from="1660203768825" duration="11221000" />
       <workItem from="1660216184319" duration="3568000" />
       <workItem from="1660266394433" duration="12603000" />
-      <workItem from="1660289362950" duration="12566000" />
+      <workItem from="1660289362950" duration="12802000" />
+      <workItem from="1660309216083" duration="6841000" />
+      <workItem from="1660351904452" duration="7060000" />
+      <workItem from="1660366380868" duration="520000" />
+      <workItem from="1660377286756" duration="2033000" />
     </task>
     <task id="LOCAL-00001" summary="1.0.0">
       <created>1659431128127</created>
@@ -437,7 +398,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660122293540</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="1.8.2">
+      <created>1660302357383</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1660302357383</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

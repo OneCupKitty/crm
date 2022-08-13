@@ -24,13 +24,27 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 			$(".mydate").datetimepicker({
 				language:'zh-CN', //语言
 				format:'yyyy-mm-dd',//日期的格式
-				pickerPosition:'top-right',//将组件显示在元素上方
 				minView:'month', //可以选择的最小视图
 				initialDate:new Date(),//初始化显示的日期
 				autoclose:true,//设置选择完日期或者时间之后，日否自动关闭日历
 				todayBtn:true,//设置是否显示"今天"按钮,默认是false
 				clearBtn:true//设置是否显示"清空"按钮，默认是false
 			});
+			$(".mydatetop").datetimepicker({
+				language:'zh-CN', //语言
+				format:'yyyy-mm-dd',//日期的格式
+				minView:'month', //可以选择的最小视图
+				pickerPosition:'top-right',//将组件显示在元素上方
+				initialDate:new Date(),//初始化显示的日期
+				autoclose:true,//设置选择完日期或者时间之后，日否自动关闭日历
+				todayBtn:true,//设置是否显示"今天"按钮,默认是false
+				clearBtn:true//设置是否显示"清空"按钮，默认是false
+			});
+
+
+			//所有者默认是当前用户
+			var owner = "${sessionScope.sessionUser.id}"
+			$("#create-owner").val(owner)
 
 			//给"阶段"下拉框添加change事件
 			$("#create-stage").change(function () {
@@ -456,7 +470,7 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 	<div class="form-group">
 		<label for="create-nextContactTime" class="col-sm-2 control-label">下次联系时间</label>
 		<div class="col-sm-10" style="width: 300px;">
-			<input type="text" class="form-control" id="create-nextContactTime">
+			<input type="text" class="form-control mydatetop" id="create-nextContactTime" readonly>
 		</div>
 	</div>
 

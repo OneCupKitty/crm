@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @program: crm-project
@@ -23,5 +24,15 @@ public class ContactsServiceImpl implements ContactsService {
     @Override
     public List<Contacts> selectContactsForDetailByName(String name) {
         return contactsMapper.selectContactsForDetailByName(name);
+    }
+
+    @Override
+    public List<Contacts> selectContactsByConditionForPage(Map<String, Object> map) {
+        return contactsMapper.selectContactsByConditionForPage(map);
+    }
+
+    @Override
+    public int selectCountContactsByConditionForPage(Map<String, Object> map) {
+        return contactsMapper.selectCountContactsByConditionForPage(map);
     }
 }

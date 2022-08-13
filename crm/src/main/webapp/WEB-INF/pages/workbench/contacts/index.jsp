@@ -1,7 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()+"/";
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+""+request.getContextPath()+"/";
 %>
 <html>
 <head>
@@ -9,12 +9,15 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 	<meta charset="UTF-8">
 
 	<link href="jquery/bootstrap_3.3.0/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
-	<link href="jquery/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="jquery/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">
+	<link rel="stylesheet" type="text/css" href="jquery/bs_pagination-master/css/jquery.bs_pagination.min.css">
 
 	<script type="text/javascript" src="jquery/jquery-1.11.1-min.js"></script>
 	<script type="text/javascript" src="jquery/bootstrap_3.3.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="jquery/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
 	<script type="text/javascript" src="jquery/bootstrap-datetimepicker-master/locale/bootstrap-datetimepicker.zh-CN.js"></script>
+	<script type="text/javascript" src="jquery/bs_pagination-master/js/jquery.bs_pagination.min.js"></script>
+	<script type="text/javascript" src="jquery/bs_pagination-master/localization/en.js"></script>
 
 	<script type="text/javascript">
 
@@ -25,8 +28,132 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 			//防止下拉菜单消失
 	        e.stopPropagation();
 	    });
-		
+		//当容器加载完成之后，对容器调用工具函数
+		//$("input[name='mydate']").datetimepicker({
+		$(".mydate").datetimepicker({
+			language:'zh-CN', //语言
+			format:'yyyy-mm-dd',//日期的格式
+			minView:'month', //可以选择的最小视图
+			initialDate:new Date(),//初始化显示的日期
+			autoclose:true,//设置选择完日期或者时间之后，日否自动关闭日历
+			todayBtn:true,//设置是否显示"今天"按钮,默认是false
+			clearBtn:true//设置是否显示"清空"按钮，默认是false
+		});
+		//给"全选"按钮添加单击事件
+		$("#checkAll").click(function () {
+			$("#tBody input[type='checkbox']").prop("checked",this.checked);
+		});
+		//给所有单个复选框 添加单击事件
+		$("#tBody").on("click","input[type='checkbox']",function () {
+			//如果列表中的所有checkbox都选中，则"全选"按钮也选中
+			if($("#tBody input[type='checkbox']").size()==$("#tBody input[type='checkbox']:checked").size()){
+				$("#checkAll").prop("checked",true);
+			}else{//如果列表中的所有checkbox至少有一个没选中，则"全选"按钮也取消
+				$("#checkAll").prop("checked",false);
+			}
+		});
+		//分页查询
+		selectContactsByConditionForPage(1,5)
+		//输入框回车事件
+		$(".search").keydown(function (event) {
+			if (event.keyCode==13){
+				selectContactsByConditionForPage(1,$("#timepicker").bs_pagination('getOption', 'rowsPerPage'))
+			}
+		})
+		//下拉框改变事件
+		$("#edit-clueSource").change(function (){
+			selectContactsByConditionForPage(1,$("#timepicker").bs_pagination('getOption', 'rowsPerPage'))
+		})
+		//查询按钮
+		$("#selectContactsBtn").click(function () {
+			selectContactsByConditionForPage(1,$("#timepicker").bs_pagination('getOption', 'rowsPerPage'))
+		})
+		//下次联系时间改变,查询
+		$("#nextContactTime").oninput(function () {
+			selectContactsByConditionForPage(1,$("#timepicker").bs_pagination('getOption', 'rowsPerPage'))
+		})
+
 	});
+
+	//条件分页查询
+	function selectContactsByConditionForPage(pageNo,pageSize) {
+		//收集参数
+		var owner = $("#owner").val()
+		var fullname = $("#fullname").val()
+		var customerName = $("#customerName").val()
+		var nextContactTime = $("#nextContactTime").val()
+		var source = $("#edit-clueSource").val()
+		//var pageNo=1;
+		//var pageSize=10;
+		//发送请求
+		$.ajax({
+			url:'workbench/clue/selectContactsByConditionForPage.do',
+			data:{
+				owner:owner,
+				fullname:fullname,
+				customerName :customerName,
+				source:source,
+				nextContactTime:nextContactTime,
+				pageNo:pageNo,
+				pageSize:pageSize
+			},
+			type:'post',
+			dataType:'json',
+			success:function (data) {
+				//显示总条数
+				//$("#totalRowsB").html("共<b>"+data.totalRows+"</b>条记录");
+				//显示市场活动的列表
+				//遍历activityList，拼接所有行数据
+				var htmlStr="";
+				$.each(data.contactsList,function (index,obj) {
+					htmlStr+="<tr>"
+					htmlStr+="<td><input type=\"checkbox\" id='"+obj.id+"'/></td>"
+					htmlStr+="<td><a style=\"text-decoration: none; cursor: pointer;\" onclick=\"window.location.href='detail.jsp';\">"+obj.fullname+"</a></td>"
+					htmlStr+="<td>"+obj.customerId+"</td>"
+					htmlStr+="<td>"+obj.owner+"</td>"
+					htmlStr+="<td>"+obj.source+"</td>"
+					htmlStr+="<td>"+obj.nextContactTime+"</td>"
+					htmlStr+="</tr>"
+				});
+				$("#tBody").html(htmlStr);
+
+				//取消"全选"按钮
+				$("#checkAll").prop("checked",false);
+
+				//计算总页数
+				let totalPages = 1;
+				if(data.totalRows%pageSize==0){
+					totalPages=data.totalRows/pageSize;
+				}else{
+					totalPages=parseInt(data.totalRows/pageSize)+1;
+				}
+
+				//对容器调用bs_pagination工具函数，显示翻页信息
+				$("#timepicker").bs_pagination({
+					currentPage:pageNo,//当前页号,相当于pageNo
+
+					rowsPerPage:pageSize,//每页显示条数,相当于pageSize
+					totalRows:data.totalRows,//总条数
+					totalPages: totalPages,  //总页数,必填参数.
+
+					visiblePageLinks:5,//最多可以显示的卡片数
+
+					showGoToPage:true,//是否显示"跳转到"部分,默认true--显示
+					showRowsPerPage:true,//是否显示"每页显示条数"部分。默认true--显示
+					showRowsInfo:true,//是否显示记录的信息，默认true--显示
+
+					//用户每次切换页号，都自动触发本函数;
+					//每次返回切换页号之后的pageNo和pageSize
+					onChangePage: function(event,pageObj) { // returns page_num and rows_per_page after a link has clicked
+						//js代码
+						//alert(pageObj.currentPage);
+						//alert(pageObj.rowsPerPage);
+						selectContactsByConditionForPage(pageObj.currentPage,pageObj.rowsPerPage);
+					}
+				});
+			}
+		});
+	}
 	
 </script>
 </head>
@@ -114,7 +241,7 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 							</div>
 							<label for="create-birth" class="col-sm-2 control-label">生日</label>
 							<div class="col-sm-10" style="width: 300px;">
-								<input type="text" class="form-control" id="create-birth">
+								<input type="text" class="form-control mydate" id="create-birth" readonly>
 							</div>
 						</div>
 						
@@ -144,7 +271,7 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 							<div class="form-group">
 								<label for="create-nextContactTime1" class="col-sm-2 control-label">下次联系时间</label>
 								<div class="col-sm-10" style="width: 300px;">
-									<input type="text" class="form-control" id="create-nextContactTime1">
+									<input type="text" class="form-control mydate" id="create-nextContactTime1" readonly>
 								</div>
 							</div>
 						</div>
@@ -250,7 +377,7 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 							</div>
 							<label for="edit-birth" class="col-sm-2 control-label">生日</label>
 							<div class="col-sm-10" style="width: 300px;">
-								<input type="text" class="form-control" id="edit-birth">
+								<input type="text" class="form-control mydate" id="edit-birth" readonly>
 							</div>
 						</div>
 						
@@ -280,7 +407,7 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 							<div class="form-group">
 								<label for="create-nextContactTime" class="col-sm-2 control-label">下次联系时间</label>
 								<div class="col-sm-10" style="width: 300px;">
-									<input type="text" class="form-control" id="create-nextContactTime">
+									<input type="text" class="form-control mydate" id="create-nextContactTime" readonly>
 								</div>
 							</div>
 						</div>
@@ -328,24 +455,23 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 				  <div class="form-group">
 				    <div class="input-group">
 				      <div class="input-group-addon">所有者</div>
-				      <input class="form-control" type="text">
+				      <input class="form-control search" id="owner" type="text">
 				    </div>
 				  </div>
 				  
 				  <div class="form-group">
 				    <div class="input-group">
 				      <div class="input-group-addon">姓名</div>
-				      <input class="form-control" type="text">
+				      <input class="form-control search" id="fullname" type="text">
 				    </div>
 				  </div>
 				  
 				  <div class="form-group">
 				    <div class="input-group">
 				      <div class="input-group-addon">客户名称</div>
-				      <input class="form-control" type="text">
+				      <input class="form-control search" id="customerName" type="text">
 				    </div>
 				  </div>
-				  
 				  <br>
 				  
 				  <div class="form-group">
@@ -353,32 +479,21 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 				      <div class="input-group-addon">来源</div>
 				      <select class="form-control" id="edit-clueSource">
 						  <option></option>
-						  <option>广告</option>
-						  <option>推销电话</option>
-						  <option>员工介绍</option>
-						  <option>外部介绍</option>
-						  <option>在线商场</option>
-						  <option>合作伙伴</option>
-						  <option>公开媒介</option>
-						  <option>销售邮件</option>
-						  <option>合作伙伴研讨会</option>
-						  <option>内部研讨会</option>
-						  <option>交易会</option>
-						  <option>web下载</option>
-						  <option>web调研</option>
-						  <option>聊天</option>
+						  <c:forEach items="${sourceList}" var="sl">
+							  <option value="${sl.id}">${sl.value}</option>
+						  </c:forEach>
 						</select>
 				    </div>
 				  </div>
 				  
 				  <div class="form-group">
 				    <div class="input-group">
-				      <div class="input-group-addon">生日</div>
-				      <input class="form-control" type="text">
+				      <div class="input-group-addon">下次联系时间</div>
+				      <input class="form-control search mydate" id="nextContactTime" type="text" readonly>
 				    </div>
 				  </div>
 				  
-				  <button type="submit" class="btn btn-default">查询</button>
+				  <button type="button" class="btn btn-default" id="selectContactsBtn">查询</button>
 				  
 				</form>
 			</div>
@@ -395,18 +510,18 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 				<table class="table table-hover">
 					<thead>
 						<tr style="color: #B3B3B3;">
-							<td><input type="checkbox" /></td>
+							<td><input type="checkbox" id="checkAll"/></td>
 							<td>姓名</td>
 							<td>客户名称</td>
 							<td>所有者</td>
 							<td>来源</td>
-							<td>生日</td>
+							<td>下次联系时间</td>
 						</tr>
 					</thead>
-					<tbody>
-						<tr>
+					<tbody id="tBody">
+						<%--<tr>
 							<td><input type="checkbox" /></td>
-							<td><a style="text-decoration: none; cursor: pointer;" onclick="window.location.href='detail.html';">李四</a></td>
+							<td><a style="text-decoration: none; cursor: pointer;" onclick="window.location.href='detail.jsp';">李四</a></td>
 							<td>动力节点</td>
 							<td>zhangsan</td>
 							<td>广告</td>
@@ -414,17 +529,18 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 						</tr>
                         <tr class="active">
                             <td><input type="checkbox" /></td>
-                            <td><a style="text-decoration: none; cursor: pointer;" onclick="window.location.href='detail.html';">李四</a></td>
+                            <td><a style="text-decoration: none; cursor: pointer;" onclick="window.location.href='detail.jsp';">李四</a></td>
                             <td>动力节点</td>
                             <td>zhangsan</td>
                             <td>广告</td>
                             <td>2000-10-10</td>
-                        </tr>
+                        </tr>--%>
 					</tbody>
 				</table>
+				<div id="timepicker"></div>
 			</div>
 			
-			<div style="height: 50px; position: relative;top: 10px;">
+			<%--<div style="height: 50px; position: relative;top: 10px;">
 				<div>
 					<button type="button" class="btn btn-default" style="cursor: default;">共<b>50</b>条记录</button>
 				</div>
@@ -457,7 +573,7 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 						</ul>
 					</nav>
 				</div>
-			</div>
+			</div>--%>
 			
 		</div>
 		

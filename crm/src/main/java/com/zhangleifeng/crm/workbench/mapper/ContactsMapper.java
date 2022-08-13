@@ -3,6 +3,7 @@ package com.zhangleifeng.crm.workbench.mapper;
 import com.zhangleifeng.crm.workbench.domain.Contacts;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ContactsMapper {
     /**
@@ -66,4 +67,18 @@ public interface ContactsMapper {
      * @return
      */
     List<Contacts> selectContactsForDetailByName(String name);
+
+    /**
+     * 条件分页查询联系人
+     * @param map
+     * @return
+     */
+    List<Contacts> selectContactsByConditionForPage(Map<String,Object> map);
+
+    /**
+     * 条件分页查询联系人记录条数
+     * @param map
+     * @return
+     */
+    int selectCountContactsByConditionForPage(Map<String,Object> map);
 }

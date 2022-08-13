@@ -77,7 +77,7 @@
 					$.each(data.tranList,function (index,obj) {
 						htmlStr+="<tr>"
 						htmlStr+="<td><input type=\"checkbox\" id='"+obj.id+"'/></td>"
-						htmlStr+="<td><a style=\"text-decoration: none; cursor: pointer;\" onclick=\"window.location.href='detail.html';\">"+obj.name+"</a></td>"
+						htmlStr+="<td><a style=\"text-decoration: none; cursor: pointer;\"  onclick=\"window.location.href='workbench/transaction/detailTran.do?id="+obj.id+"'\">"+obj.name+"</a></td>"
 						htmlStr+="<td>"+obj.customerId+"</td>"
 						htmlStr+="<td>"+obj.stage+"</td>"
 						if (obj.type==null || obj.type == ''){
@@ -256,7 +256,7 @@
 				<tbody id="tBody">
 				<%--<tr>
 					<td><input type="checkbox" /></td>
-					<td><a style="text-decoration: none; cursor: pointer;" onclick="window.location.href='detail.html';">动力节点-交易01</a></td>
+					<td><a style="text-decoration: none; cursor: pointer;" onclick="window.location.href='detail.jsp';">动力节点-交易01</a></td>
 					<td>动力节点</td>
 					<td>谈判/复审</td>
 					<td>新业务</td>
@@ -266,7 +266,7 @@
 				</tr>
 				<tr class="active">
 					<td><input type="checkbox" /></td>
-					<td><a style="text-decoration: none; cursor: pointer;" onclick="window.location.href='detail.html';">动力节点-交易01</a></td>
+					<td><a style="text-decoration: none; cursor: pointer;" onclick="window.location.href='detail.jsp';">动力节点-交易01</a></td>
 					<td>动力节点</td>
 					<td>谈判/复审</td>
 					<td>新业务</td>

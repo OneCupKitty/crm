@@ -1,5 +1,6 @@
 package com.zhangleifeng.crm.workbench.mapper;
 
+import com.zhangleifeng.crm.workbench.domain.FunnelVO;
 import com.zhangleifeng.crm.workbench.domain.Tran;
 
 import java.util.List;
@@ -74,4 +75,17 @@ public interface TranMapper {
      * @return
      */
     int selectCountTranByConditionForPage(Map<String,Object> map);
+
+    /**
+     * 根据交易id ,查询交易明细信息
+     * @param id
+     * @return
+     */
+    Tran selectTranForDetailById(String id);
+
+    /**
+     * 查询交易表中各个阶段的数据量
+     * @return
+     */
+    List<FunnelVO> selectCountOfTranGroupByStage();
 }

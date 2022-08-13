@@ -5,8 +5,11 @@ import com.zhangleifeng.crm.commons.utils.DateUtils;
 import com.zhangleifeng.crm.commons.utils.UUIDUtils;
 import com.zhangleifeng.crm.settings.domain.User;
 import com.zhangleifeng.crm.workbench.domain.Customer;
+import com.zhangleifeng.crm.workbench.domain.FunnelVO;
 import com.zhangleifeng.crm.workbench.domain.Tran;
+import com.zhangleifeng.crm.workbench.domain.TranHistory;
 import com.zhangleifeng.crm.workbench.mapper.CustomerMapper;
+import com.zhangleifeng.crm.workbench.mapper.TranHistoryMapper;
 import com.zhangleifeng.crm.workbench.mapper.TranMapper;
 import com.zhangleifeng.crm.workbench.service.TranService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +33,9 @@ public class TranServiceImpl implements TranService {
 
     @Autowired
     CustomerMapper customerMapper;
+
+    @Autowired
+    TranHistoryMapper tranHistoryMapper;
 
     @Override
     public List<Tran> selectTranByConditionForPage(Map<String, Object> map) {
@@ -76,5 +82,25 @@ public class TranServiceImpl implements TranService {
         tran.setSource((String) map.get("source"));
         tran.setType((String) map.get("type"));
         tranMapper.insertTran(tran);
+        //保存交易历史
+        TranHistory tranHistory=new TranHistory();
+        tranHistory.setCreateBy(user.getId());
+        tranHistory.setCreateTime(DateUtils.formatDateTime(new Date()));
+        tranHistory.setExpectedDate(tran.getExpectedDate());
+        tranHistory.setId(UUIDUtils.getUUID());
+        tranHistory.setMoney(tran.getMoney());
+        tranHistory.setStage(tran.getStage());
+        tranHistory.setTranId(tran.getId());
+        tranHistoryMapper.insertTranHistory(tranHistory);
+    }
+
+    @Override
+    public Tran selectTranForDetailById(String id) {
+        return tranMapper.selectTranForDetailById(id);
+    }
+
+    @Override
+    public List<FunnelVO> selectCountOfTranGroupByStage() {
+        return tranMapper.selectCountOfTranGroupByStage();
     }
 }

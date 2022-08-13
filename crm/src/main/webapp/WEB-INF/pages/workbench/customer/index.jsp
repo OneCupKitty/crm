@@ -30,6 +30,12 @@
 		$("#selectCustomerByConditionForPageBtn").click(function () {
 			selectCustomerByConditionForPage(1,$("#timepicker").bs_pagination('getOption', 'rowsPerPage'))
 		})
+		//输入框按下回车查询
+		$(".search").keydown(function (event) {
+			if (event.keyCode==13){
+				selectCustomerByConditionForPage(1,$("#timepicker").bs_pagination('getOption', 'rowsPerPage'))
+			}
+		})
 		
 		//定制字段
 		$("#definedColumns > li").click(function(e) {
@@ -70,10 +76,18 @@
 				$.each(data.customerList,function (index,obj) {
 					htmlStr+="<tr>"
 					htmlStr+="<td><input type=\"checkbox\" id='"+obj.id+"' /></td>"
-					htmlStr+="<td><a style=\"text-decoration: none; cursor: pointer;\" onclick=\"window.location.href='detail.html';\">"+obj.name+"</a></td>"
+					htmlStr+="<td><a style=\"text-decoration: none; cursor: pointer;\" onclick=\"window.location.href='detail.jsp';\">"+obj.name+"</a></td>"
 					htmlStr+="<td>"+obj.owner+"</td>"
-					htmlStr+="<td>"+obj.phone+"</td>"
-					htmlStr+="<td>"+obj.website+"</td>"
+					if(obj.phone == null || obj.phone == ''){
+						htmlStr+="<td>----------</td>"
+					}else {
+						htmlStr+="<td>"+obj.phone+"</td>"
+					}
+					if(obj.phone == null || obj.phone == ''){
+						htmlStr+="<td>----------</td>"
+					}else {
+						htmlStr+="<td>"+obj.website+"</td>"
+					}
 					htmlStr+="</tr>"
 				});
 				$("#tBody").html(htmlStr);
@@ -307,28 +321,28 @@
 				  <div class="form-group">
 				    <div class="input-group">
 				      <div class="input-group-addon">名称</div>
-				      <input class="form-control" type="text" id="customerName">
+				      <input class="form-control search" type="text" id="customerName">
 				    </div>
 				  </div>
 				  
 				  <div class="form-group">
 				    <div class="input-group">
 				      <div class="input-group-addon">所有者</div>
-				      <input class="form-control" type="text" id="customerOwner">
+				      <input class="form-control search" type="text" id="customerOwner">
 				    </div>
 				  </div>
 				  
 				  <div class="form-group">
 				    <div class="input-group">
 				      <div class="input-group-addon">公司座机</div>
-				      <input class="form-control" type="text" id="phone">
+				      <input class="form-control search" type="text" id="phone">
 				    </div>
 				  </div>
 				  
 				  <div class="form-group">
 				    <div class="input-group">
 				      <div class="input-group-addon">公司网站</div>
-				      <input class="form-control" type="text" id="website">
+				      <input class="form-control search" type="text" id="website">
 				    </div>
 				  </div>
 				  
@@ -358,14 +372,14 @@
 					<tbody id="tBody">
 						<%--<tr>
 							<td><input type="checkbox" /></td>
-							<td><a style="text-decoration: none; cursor: pointer;" onclick="window.location.href='detail.html';">动力节点</a></td>
+							<td><a style="text-decoration: none; cursor: pointer;" onclick="window.location.href='detail.jsp';">动力节点</a></td>
 							<td>zhangsan</td>
 							<td>010-84846003</td>
 							<td>http://www.bjpowernode.com</td>
 						</tr>
                         <tr class="active">
                             <td><input type="checkbox" /></td>
-                            <td><a style="text-decoration: none; cursor: pointer;" onclick="window.location.href='detail.html';">动力节点</a></td>
+                            <td><a style="text-decoration: none; cursor: pointer;" onclick="window.location.href='detail.jsp';">动力节点</a></td>
                             <td>zhangsan</td>
                             <td>010-84846003</td>
                             <td>http://www.bjpowernode.com</td>

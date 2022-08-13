@@ -7,13 +7,9 @@ import com.zhangleifeng.crm.settings.domain.DicValue;
 import com.zhangleifeng.crm.settings.domain.User;
 import com.zhangleifeng.crm.settings.service.DicValueService;
 import com.zhangleifeng.crm.settings.service.UserService;
-import com.zhangleifeng.crm.workbench.domain.Activity;
-import com.zhangleifeng.crm.workbench.domain.Contacts;
-import com.zhangleifeng.crm.workbench.domain.Tran;
-import com.zhangleifeng.crm.workbench.service.ActivityService;
-import com.zhangleifeng.crm.workbench.service.ContactsService;
-import com.zhangleifeng.crm.workbench.service.CustomerService;
-import com.zhangleifeng.crm.workbench.service.TranService;
+import com.zhangleifeng.crm.workbench.domain.*;
+import com.zhangleifeng.crm.workbench.mapper.TranHistoryMapper;
+import com.zhangleifeng.crm.workbench.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,6 +48,12 @@ public class TranController {
 
     @Autowired
     CustomerService customerService;
+
+    @Autowired
+    TranRemarkService tranRemarkService;
+
+    @Autowired
+    TranHistoryService tranHistoryService;
 
 
     @RequestMapping("/workbench/transaction/index.do")
@@ -160,6 +162,31 @@ public class TranController {
         return returnObject;
     }
 
+    @RequestMapping("/workbench/transaction/detailTran.do")
+    public String detailTran(String id,HttpServletRequest request){
+        //调用service层方法，查询数据
+        Tran tran=tranService.selectTranForDetailById(id);
+        List<TranRemark> remarkList=tranRemarkService.selectTranRemarkForDetailByTranId(id);
+        List<TranHistory> historyList=tranHistoryService.selectTranHistoryForDetailByTranId(id);
+
+        //根据tran所处阶段名称查询可能性
+        ResourceBundle bundle=ResourceBundle.getBundle("possibility");
+        String possibility=bundle.getString(tran.getStage());
+        tran.setPossibility(possibility);
+
+        //把数据保存到request中
+        request.setAttribute("tran",tran);
+        request.setAttribute("remarkList",remarkList);
+        request.setAttribute("historyList",historyList);
+//        request.setAttribute("possibility",possibility);
+
+        //调用service方法，查询交易所有的阶段
+        List<DicValue> stageList=dicValueService.selectDicValueByTypeCode("stage");
+        request.setAttribute("stageList",stageList);
+
+        //请求转发
+        return "workbench/transaction/detail";
+    }
 
 
 }

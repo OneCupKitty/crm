@@ -294,7 +294,60 @@
         and fullname like '%' #{contactsName} '%'
       </if>
     </where>
-
   </select>
+
+  <select id="selectContactsByConditionForPage" resultMap="BaseResultMap">
+    select co.id,co.fullname,cu.name as customer_id,u.name as owner,dv1.value as source,co.next_contact_time
+    from tbl_contacts co
+           left join tbl_customer cu on co.customer_id=cu.id
+           join tbl_user u on co.owner=u.id
+           left join tbl_dic_value dv1 on co.source=dv1.id
+    <where>
+      <if test="owner != null and owner != ''">
+        and u.name like '%' #{owner} '%'
+      </if>
+      <if test="fullname != null and fullname != ''">
+        and co.fullname like '%' #{fullname} '%'
+      </if>
+      <if test="customerName != null and customerName != ''">
+        and cu.name like '%' #{customerName} '%'
+      </if>
+      <if test="source != null and source != ''">
+        and co.source=#{source}
+      </if>
+      <if test="nextContactTime != null and nextContactTime != ''">
+        and co.next_contact_time&lt;=#{nextContactTime}
+      </if>
+    </where>
+    order by co.create_time desc
+    limit #{beginNo},#{pageSize}
+  </select>
+
+  <select id="selectCountContactsByConditionForPage" resultType="int">
+    select count(*)
+    from tbl_contacts co
+    left join tbl_customer cu on co.customer_id=cu.id
+    join tbl_user u on co.owner=u.id
+    left join tbl_dic_value dv1 on co.source=dv1.id
+    <where>
+      <if test="owner != null and owner != ''">
+        and u.name like '%' #{owner} '%'
+      </if>
+      <if test="fullname != null and fullname != ''">
+        and co.fullname like '%' #{fullname} '%'
+      </if>
+      <if test="customerName != null and customerName != ''">
+        and cu.name like '%' #{customerName} '%'
+      </if>
+      <if test="source != null and source != ''">
+        and co.source=#{source}
+      </if>
+      <if test="nextContactTime != null and nextContactTime != ''">
+        and co.next_contact_time&lt;=#{nextContactTime}
+      </if>
+    </where>
+  </select>
+
+
 
 </mapper>

@@ -151,4 +151,5 @@ public interface ActivityMapper {
      * @return
      */
     List<Activity> selectActivityForDetailByName(String name);
+
 }
